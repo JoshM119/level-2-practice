@@ -50,12 +50,21 @@ console.log("Step 3 price:", exampleParsed.price);
 
 // TODO: Write a JSON string for one of YOUR menu items. Parse it. Log one property.
 
+const coneJson = '{"Name": "Ice Cream Cone", "price": 2}';
+const coneParsed = JSON.parse(coneJson);
+console.log("Step 3 text:", coneJson);
+console.log("Step 3 object:", coneParsed);
+console.log("Step 3 price:", coneParsed.price);
+
 // ---------- Step 4: JavaScript → JSON text ----------
 // Example:
 const exampleBack = JSON.stringify(exampleParsed);
 console.log("Step 4:", exampleBack, typeof exampleBack); // it's a string again
 
 // TODO: Turn your parsed menu item back into a JSON string and log it with typeof.
+
+const coneBack = JSON.stringify(coneParsed);
+console.log("Step 4:", coneBack, typeof coneBack);
 
 // ---------- Extra practice (if you finish early) ----------
 // 1. Make a second truck object with its own describe() method.
