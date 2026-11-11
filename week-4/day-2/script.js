@@ -9,9 +9,9 @@
 
 // First: replace this menu with YOUR truck's menu (keep the same shape).
 const menu = [
-  { name: "Taco", price: 4.5 },
-  { name: "Burrito", price: 9 },
-  { name: "Nachos", price: 6.25 },
+  { name: "Ice cream sandwich", price: 1.5 },
+  { name: "ice cream cone", price: 2 },
+  { name: "Ice cream cake", price: 6 },
 ];
 
 // getElementById finds ONE element by its id. Same job as querySelector("#card-area"),
