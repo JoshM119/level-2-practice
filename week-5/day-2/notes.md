@@ -8,11 +8,11 @@ Write `{{gemini_key}}` (the variable's name) instead.
 | --- | --- | --- | --- |
 | Method (GET / POST) | | | |
 | Endpoint (the address, filled in for you) | `https://api.open-meteo.com/v1/forecast` | `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent` | `https://dummyjson.com/recipes/add` |
-| Where the details go (query params or body?) | | | |
-| Headers I needed | | | |
-| Does it need a key? | | | |
-| Status I got | | | |
-| The part of the response I care about (the path, like `current.temperature_2m`) | | | |
+| Where the details go (query params or body?) | Query parameters|JSON body| |
+| Headers I needed |none | x-goog-api-key: {{gemini_key}}| |
+| Does it need a key? |no|yes | |
+| Status I got |200 OK |200 OK | |
+| The part of the response I care about (the path, like `current.temperature_2m`) | current.temperature_2m|candidates[0].content.parts[0].text | |
 
 ## What was different?
 
