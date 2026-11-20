@@ -9,6 +9,7 @@ const recipeArea = document.getElementById("recipe");
 
 
 async function loadRecipe() {
+  try {
   const url = "https://dummyjson.com/recipes/" + input.value;
 
   recipeArea.textContent = "";   // clear the old recipe first
@@ -16,12 +17,23 @@ async function loadRecipe() {
   // ---------- Step 2 goes here (loading message) ----------
 
 
+  statusText.textContent = "Loading...";
+
+
   const response = await fetch(url);
 
   // ---------- Step 3 goes here (no recipe with that number) ----------
 
 
+  if (!response.ok) {
+    statusText.textContent = "Recipe not found. Try entering a number 1 - 50. ";
+    return;
+  }
+
+
+
   const recipe = await response.json();
+  statusText.textContent = "";
   console.log(recipe);   // look at ALL the fields in the console, then pick a few
 
   // ---------- Step 1: show a few fields ----------
@@ -34,12 +46,31 @@ async function loadRecipe() {
   title.textContent = recipe.name;
   card.appendChild(title);
 
-  recipeArea.appendChild(card);
+  
 
   // YOUR TURN: add 2 more fields to the card, under the title. For example:
   //   a <p> with the cuisine:           "Cuisine: Italian"
   //   a <p> with the prep time:         "Ready in 20 minutes"   (recipe.prepTimeMinutes)
   // Each one: createElement, textContent, card.appendChild.
+
+  const cuisine = document.createElement("h2");
+  cuisine.className = "fs-3 h4";
+  cuisine.textContent = `Cuisine: ${recipe.cuisine}`;
+  card.appendChild(cuisine);
+
+  
+
+  const ready = document.createElement("h2");
+  ready.className = "fs-3 h4";
+  ready.textContent = `ready in ${recipe.cookTimeMinutes} minutes!`;
+  card.appendChild(ready);
+
+  recipeArea.appendChild(card);
+
+} catch(error) {
+  statusText.textContent = "server can't be reached, check internet connection.";
+}
+
 }
 
 button.addEventListener("click", loadRecipe);
